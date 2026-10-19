@@ -1,0 +1,37 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+  tasks:
+    - name: "Include harbor_ansible_role"
+      include_role:
+        name: "harbor_ansible_role"
+      vars:
+        harbor_projects:
+          - project_name: "firstproject"
+            public: "true"
+          - project_name: "secondproject"
+            public: "false"
+        harbor_members:
+          - project: "firstproject"
+            role_id: 1
+            username: "user_one"
+          - project: "secondproject"
+            role_id: 2
+            username: "second_one"
+        harbor_users:
+          - username: "user_one"
+            email: "email@mail.com"
+            password: "Harboruser12345"
+            realname: "user one"
+            comment: "void"
+          - username: "second_one"
+            email: "email_two@mail.com"
+            password: "Harboruser12345"
+            realname: "user two"
+            comment: "void"
+        harbor_get_users: yes
+        harbor_get_projects: yes
+        harbor_get_members:
+          - project_id: firstproject
+          - project_id: secondproject

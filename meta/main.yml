@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: Dmitry Razin
+  description: Role for Harbor deployment with the ability to preset users and tenats 
+  company: Personal project
+  role_name: harbor_ansible_role
+  namespace: one_mind
+
+  license: Apache
+
+  min_ansible_version: 4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+
+  galaxy_tags: [harbor, registry]
+
+dependencies: []
